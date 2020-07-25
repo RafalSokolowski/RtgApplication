@@ -1,0 +1,109 @@
+
+BorderPane {
+    -fx-cursor: hand;
+    -fx-background-color: #111111;
+}
+
+.top {
+    -fx-cursor: open_hand;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+    -fx-border-color: grey;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-style: dashed;
+}
+#colorPicker {
+    -fx-cursor: hand;
+}
+
+.left {
+    -fx-padding: 5px;
+    -fx-spacing: 5px;
+    -fx-cursor: open_hand;
+}
+ScrollPane {
+    -fx-background: #111111;
+    -fx-background-color: #111111;
+    -fx-fit-to-width: true;
+}
+
+.coordinate {
+    -fx-text-fill: white;
+    -fx-background-color: #232323;
+}
+
+.point {
+    -fx-background-color: #333333;
+    -fx-background-radius: 3px;
+}
+
+.center {
+    -fx-cursor: open_hand;
+    -fx-background-color: #010101;
+    -fx-alignment: center;
+    -fx-vgap: 20px;
+    -fx-hgap: 20px;
+    /*-fx-border-color: grey;*/
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-style: dashed;*/
+}
+
+.center ImageView:hover {
+    -fx-cursor: crosshair;
+}
+
+.bottom {
+    -fx-cursor: open_hand;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+
+    -fx-border-color: grey;
+    -fx-border-width: 1px 0 0 0;
+    -fx-border-style: dashed;
+}
+
+Label {
+    -fx-text-fill: white;
+    -fx-font: 20px Calibri;
+    -fx-padding: 5px;
+}
+
+Text {
+    -fx-font: 20px Calibri;
+    -fx-font-weight: bold
+}
+
+TextField {
+    -fx-text-fill: white;
+    -fx-background-color: #232323;
+}
+ChoiceBox {
+    -fx-background-color: #232323;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+ChoiceBox .arrow, .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/*open a file*/
+.openFile {
+    -fx-cursor: hand;
+    -fx-padding: 2 -10 0 -10;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.openFile:hover {
+    -fx-scale-x: 1.4;
+    -fx-scale-y: 1.4;
+}
+
+.openFile:pressed {
+    -fx-effect: dropshadow(gaussian, black, 5, 0.1, 0, 0);
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}

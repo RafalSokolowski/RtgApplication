@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import pl.sokolowski.Const?>
+
+<?import javafx.scene.paint.Color?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane fx:id="rootBorderPane"
+            fx:controller="pl.sokolowski.controllers.Controller"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@style.css">
+
+    <fx:define>
+        <Const fx:id="maxImageHeight" fx:constant="MAX_IMAGE_HEIGHT"/>
+        <Const fx:id="leftMenuSize" fx:constant="LEFT_MENU_SIZE"/>
+        <Const fx:id="rtgWindowSize" fx:constant="RTG_WINDOW_SIZE"/>
+    </fx:define>
+
+
+    <top>
+        <HBox styleClass="top">
+            <!-- <Label text="menu will be placed here"/> -->
+            <Label text="Select point's color: "/>
+            <ColorPicker fx:id="colorPicker" prefWidth="25" style="-fx-background-color: #111111">
+                <value>
+                    <Color red="1.0"/>
+                </value>
+            </ColorPicker>
+
+            <Label text=" | Select point's size: "/>
+            <ChoiceBox fx:id="sizePicker" prefWidth="25">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="XS"/>
+                        <String fx:value="S"/>
+                        <String fx:value="M"/>
+                        <String fx:value="L"/>
+                        <String fx:value="XL"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="M"/>
+                </value>
+            </ChoiceBox>
+
+            <Label text=" | GridPane axis: "/>
+            <TextField fx:id="currentX" prefWidth="50" disable="true"/>
+            <Label text=","/>
+            <TextField fx:id="currentY" prefWidth="50" disable="true"/>
+
+            <Label text=" | Get the RTG file: "/>
+<!--            <Button fx:id="selectNewPath" styleClass="openFile" prefWidth="30" onAction="#selectNewFile">-->
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <Image url="@graphics/new.png" preserveRatio="true" requestedHeight="20"/>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+<!--            </Button>-->
+
+        </HBox>
+    </top>
+
+
+    <left>
+        <ScrollPane>
+            <VBox fx:id="leftMenu" styleClass="left" prefWidth="$leftMenuSize">
+                <Label text="Marked points:" BorderPane.alignment="TOP_CENTER"/>
+            </VBox>
+        </ScrollPane>
+    </left>
+
+
+    <center>
+        <VBox>
+            <Label text="Uploaded RTG images:" BorderPane.alignment="TOP_CENTER"/>
+        </VBox>
+        <GridPane fx:id="centerGridPane" styleClass="center" prefWidth="$rtgWindowSize"
+                  onMousePressed="#getCoordinateAndDrawPoint">
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50.0" halignment="CENTER"/>
+                <ColumnConstraints percentWidth="50.0" halignment="CENTER"/>
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints percentHeight="50.0" valignment="CENTER"/>
+                <RowConstraints percentHeight="50.0" valignment="CENTER"/>
+            </rowConstraints>
+
+
+            <ImageView fx:id="rtgImageView00" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                       preserveRatio="true" fitHeight="${rootBorderPane.height/2-70}">
+                <Image fx:id="rtgImage" url="@images/hand01.png"/>
+            </ImageView>
+
+            <ImageView fx:id="rtgImageView10" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                       preserveRatio="true" fitHeight="${rootBorderPane.height/2-70}">
+                <Image url="@images/hand01.png" preserveRatio="true" requestedHeight="$maxImageHeight"/>
+            </ImageView>
+
+            <ImageView fx:id="rtgImageView01" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                       preserveRatio="true" fitHeight="${rootBorderPane.height/2-70}">
+                <Image url="@images/hand01.png" preserveRatio="true" requestedHeight="$maxImageHeight"/>
+            </ImageView>
+
+            <ImageView fx:id="rtgImageView11" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                       preserveRatio="true" fitHeight="${rootBorderPane.height/2-70}">
+                <Image url="@images/hand01.png" preserveRatio="true" requestedHeight="$maxImageHeight"/>
+            </ImageView>
+
+        </GridPane>
+
+    </center>
+
+    <bottom>
+        <HBox styleClass="bottom">
+            <Label text="All rights reserved &#174; | for the interview process | powered by JavaFX 8  | Resizing to be delivered in v 2.0"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
+
